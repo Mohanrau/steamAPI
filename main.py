@@ -15,8 +15,11 @@ def set_profile():
         name = ''
     return redirect(url_for('view_profile', name=name))
 
+@app.route('/user/view/')
+def view_redirect():
+    return redirect(url_for('view_profile', name='unknown'))
 
-@app.route('/user/view/<name>/', methods=['GET', 'POST'])
+@app.route('/user/view/<name>/')
 def view_profile(name=None):
     try:
         try:
